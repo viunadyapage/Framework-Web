@@ -1,0 +1,16 @@
+/* Style untuk alert sama seperti pada praktikum */
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.alert-success {
+    background-color: #a2fdee;
+    color: #155724;
+}
+
+.alert-warning {
+    background-color: #ffe7b3;
+    color: #be0000;
+}

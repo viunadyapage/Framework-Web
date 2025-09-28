@@ -1,0 +1,49 @@
+<?php
+
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+//ini untuk produk/(parameter) no 1
+Route::get('/produk/{angka}', [ProductController::class, 'show']);
+
+Route::get(uri: '/rahasia', action: function ():string {
+    return 'Halaman ini halaman rahasia';
+})->middleware(['auth', 'RoleCheck:admin']);
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/langsung', function() {
+        echo "ini ditampilkan dari route langsung";
+    });
+
+    Route::get('/group_route_satu', function() {
+        echo "ini ditampilkan dari function rutes langsung";
+    });
+});
+Route::get('/route_cont/{id}', action: [ProductController::class, 'show']);
+
+require __DIR__.'/auth.php';
