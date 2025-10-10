@@ -55,4 +55,8 @@ Route::get('/langganan', function() {
     return view('langganan');
 });
 
+//untuk pert 7
+Route::get('/product/create', [ProductController::class, 'create'])->name('product-create');
+Route::post('/product', [ProductController::class, 'store'])->name('product-store');
+
 require __DIR__.'/auth.php';
