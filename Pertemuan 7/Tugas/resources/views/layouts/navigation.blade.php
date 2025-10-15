@@ -35,7 +35,10 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('product-create')">
-                           Product Master
+                           Create Product <!-- kuubah jadi create product agar bisa terlihat fungsi halaman ini -->
+                        </x-dropdown-link> 
+                        <x-dropdown-link :href="route('product-index')">
+                           Product List
                         </x-dropdown-link>
                     </x-slot>
                 </x-dropdown>
