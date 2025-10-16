@@ -21,6 +21,7 @@
                                 <th class="py-2 px-4 text-left border-b">Type</th>
                                 <th class="py-2 px-4 text-left border-b">Quantity</th>
                                 <th class="py-2 px-4 text-left border-b">Producer</th>
+                                <th class="py-2 px-4 text-left border-b">Information</th> 
                                 <th class="py-2 px-4 text-left border-b">Actions</th>
                             </tr>
                         </thead>
@@ -32,6 +33,7 @@
                                     <td class="py-2 px-4 border-b">{{ $product->type }}</td>
                                     <td class="py-2 px-4 border-b">{{ $product->qty }}</td>
                                     <td class="py-2 px-4 border-b">{{ $product->producer }}</td>
+                                    <td class="py-2 px-4 border-b">{{ $product->information }}</td> 
                                     <td class="py-2 px-4 border-b">
                                         <!-- Tombol Edit -->
                                         <a href="{{ route('product-edit', $product->id) }}" class="bg-yellow-500 text-black px-4 py-2 rounded-md">Edit</a>
@@ -49,7 +51,9 @@
 
                     <!-- Tombol Tambah Produk -->
                     <div class="mt-4">
-                        <a href="{{ route('product-create') }}" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-black bg-blue-500 border rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-blue-300 dark:hover:bg-blue-400 dark:focus:ring-blue-300"">Create new product</a>
+                        <a href="{{ route('product-create') }}" class="inline-flex justify-center px-4 py-2 text-sm font-medium text-black bg-blue-500 border rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-blue-300 dark:hover:bg-blue-400 dark:focus:ring-blue-300">
+                            Create new product
+                        </a>
                     </div>
                 </div>
 
