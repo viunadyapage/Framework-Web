@@ -45,7 +45,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        return view('barang', data: ['isi_data' => $id]);
+        
     }
 
     /**
