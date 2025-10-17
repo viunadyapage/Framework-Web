@@ -28,23 +28,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $item)
-                            <tr class="bg-white">
-                                <td class="px-4 py-2 border border-gray-200">1</td>
-                                <td class="px-4 py-2 border border-gray-200">{{ $item->product_name }}</td>
-                                <td class="px-4 py-2 border border-gray-200">{{ $item->unit }}</td>
-                                <td class="px-4 py-2 border border-gray-200">{{ $item->type }}</td>
-                                <td class="px-4 py-2 border border-gray-200">{{ $item->information }}</td>
-                                <td class="px-4 py-2 border border-gray-200">{{ $item->qty }}</td>
-                                <td class="px-4 py-2 border border-gray-200">{{ $item->producer }}</td>
-                                <td class="px-4 py-2 border border-gray-200">
+                    @forelse ($data as $key => $item)
+                        <tr class="bg-white hover:bg-gray-50 transition-colors">
+                            <td class="px-4 py-2 border border-gray-200">{{ $key + 1 }}</td>
+                            <td class="px-4 py-2 border border-gray-200">{{ $item->product_name }}</td>
+                            <td class="px-4 py-2 border border-gray-200">{{ $item->unit }}</td>
+                            <td class="px-4 py-2 border border-gray-200">{{ $item->type }}</td>
+                            <td class="px-4 py-2 border border-gray-200">{{ $item->information }}</td>
+                            <td class="px-4 py-2 border border-gray-200">{{ $item->qty }}</td>
+                            <td class="px-4 py-2 border border-gray-200">{{ $item->producer }}</td>
+                            <td class="px-4 py-2 border border-gray-200">
+                                <div class="flex gap-2">
                                     <a href="{{ route('product-edit', $item->id) }}"
-                                        class="px-2 text-blue-600 hover:text-blue-800">Edit</a>
-                                    <button class="px-2 text-red-600 
-                        hover:text-red-800" onclick="confirmDelete(1)">Hapus</button>
-                                </td>
-                            </tr>
-                    @endforeach
+                                        class="px-3 py-1 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded transition-colors">
+                                        Edit
+                                    </a>
+
+                                    <button type="button"
+                                        class="px-3 py-1 text-red-600 hover:text-red-800 hover:bg-red-50 rounded transition-colors"
+                                        onclick="confirmDelete({{ $item->id }}, '{{ route('product-destroy', $item->id) }}')">
+                                        Hapus
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="8" class="px-4 py-2 text-center text-gray-500 border border-gray-200">
+                                Tidak ada data
+                            </td>
+                        </tr>
+                    @endforelse
+
+
+                    <!-- Tambahkan baris lainnya sesuai kebutuhan -->
                 </tbody>
             </table>
         </div>

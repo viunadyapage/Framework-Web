@@ -55,7 +55,6 @@ Route::get('/langganan', function() {
     return view('langganan');
 });
 
-//untuk pert 7 pake route dengan pernamaaan
 //Create
 Route::get('/product/create', [ProductController::class, 'create'])->name('product-create');
 Route::post('/product', [ProductController::class, 'store'])->name('product-store');
@@ -68,9 +67,5 @@ Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('prod
 Route::put('/product/{id}', [ProductController::class, 'update'])->name('product-update');
 // Delete 
 Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product-destroy');
-//pert 8
-Route::get('/supplier', [ProductController::class, 'supplier'])->name('supplier-index');
-Route::get('/supplier/create', [ProductController::class, 'create_supplier'])->name('supplier-create');
-Route::post('/supplier', [ProductController::class, 'store_supplier'])->name('supplier-store');
 
 require __DIR__.'/auth.php';
