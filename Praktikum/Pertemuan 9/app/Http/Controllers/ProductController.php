@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -77,6 +78,7 @@ class ProductController extends Controller
     {
         //$product = Product::findOrFail($id);
         //$product->delete();
+        DB::table('products')->where('id', $id)->delete();
         return redirect()->route('product-index')->with('success', 'Product deleted successfully.');
     }
 }
