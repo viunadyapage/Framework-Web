@@ -55,7 +55,6 @@ Route::get('/langganan', function() {
     return view('langganan');
 });
 
-//untuk pert 7 pake route dengan pernamaaan
 //Create
 Route::get('/product/create', [ProductController::class, 'create'])->name('product-create');
 Route::post('/product', [ProductController::class, 'store'])->name('product-store');
@@ -67,6 +66,7 @@ Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('prod
 Route::put('/product/{id}', [ProductController::class, 'update'])->name('product-update');
 // Delete 
 Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product-destroy');
-
+// Export to Excel
+Route::get('/products/export-excel', [ProductController::class, 'exportExcel'])->name('products-export-excel');
 
 require __DIR__.'/auth.php';

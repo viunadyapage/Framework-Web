@@ -55,8 +55,15 @@
                             Create new product
                         </a>
                     </div>
+                    <!-- Tombol Export to Excel -->
+                    <div class="mt-4">
+                    <a href="{{ route('products-export-excel') }}">
+                        <button class="px-6 py-4 text-black bg-blue-500 border border-blue-500 rounded-lg shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            Export to Excel
+                        </button>
+                    </a>
                 </div>
-
+                </div>
                 @vite('resources/js/app.js') <!-- Include Vite's JS assets -->
             </div>
         </div>
